@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for route in all_routes %}
+<div class="route">
+    <div class="content">
+        
+            Name: {{route.name}}
+            Grade: {{route.grade}}
+            Crag: {{route.crag.name}}
+
+    </div>
+</div>
+
+{% endfor %}
+
+{% endblock %}

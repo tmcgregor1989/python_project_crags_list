@@ -20,8 +20,8 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        crag = crag_repository.select(result['crag_id'])
-        route = Route(row['name'], row['grade'], crag, row['completed'], row['id'])
+        crag = crag_repository.select(row['crag_id'])
+        route = Route(row['name'], row['grade'], crag, row['climbed'], row['id'])
         routes.append(route)
     return routes
 
