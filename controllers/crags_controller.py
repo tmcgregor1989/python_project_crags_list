@@ -59,3 +59,11 @@ def update_route(id):
     route = Route(name, grade, crag, climbed, id)
     route_repository.update(route)
     return redirect('/routes')
+
+
+    # CRAG SECTION
+
+@crags_blueprint.route("/crags")
+def crags():
+    crags = crag_repository.select_all()
+    return render_template("crags/index.html", all_crags = crags)
