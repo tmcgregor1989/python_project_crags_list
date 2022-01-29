@@ -67,3 +67,22 @@ def update_route(id):
 def crags():
     crags = crag_repository.select_all()
     return render_template("crags/index.html", all_crags = crags)
+
+@crags_blueprint.route('/crags/<id>/delete', methods=['POST'])
+def delete_crag(id):
+    crag_repository.delete(id)
+    return redirect('/crags')
+
+# add new route
+@crags_blueprint.route("/crags/new", methods=['GET'])
+def new_crag():
+    return render_template('crags/new.html')
+
+# create new route
+@crags_blueprint.route('/crags', methods=['POST'])
+def create_crag():
+    name = request.form['name']
+    crag = Crag(name)
+    crag_repository.save(crag)
+    return redirect('/crags')
+
