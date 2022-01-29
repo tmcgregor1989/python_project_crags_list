@@ -5,7 +5,7 @@
 {% for route in all_routes %}
 <div class="route">
     <div class="content">
-        
+        <div>
             Name: {{route.name}}
             Grade: {{route.grade}}
             Crag: {{route.crag.name}}
@@ -13,7 +13,14 @@
             I have climbed this!!
             {% else %}
             I will climb this
+        </div>
             {% endif %}
+        <div class="buttons">
+            <form class="delete-form" action="/routes/{{route.id}}/delete" method="POST">
+                <button class="trash-button">Delete Route</button>
+            </form>
+        </div>
+            
 
     </div>
 </div>

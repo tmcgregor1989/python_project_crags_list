@@ -29,3 +29,9 @@ def create_route():
     route = Route(name, grade, crag, climbed)
     route_repository.save(route)
     return redirect('/routes')
+
+# delete an entry
+@crags_blueprint.route('/routes/<id>/delete', methods=['POST'])
+def delete_route(id):
+    route_repository.delete(id)
+    return redirect('/routes')
