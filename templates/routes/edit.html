@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <form action="/routes/{{route.id}}" method="post">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="{{route.name}}" required autofocus>
+        </div>
+
+        <div>
+            <label for="grade">Grade:</label>
+            <input type="text" id="grade" name="grade" value="{{route.grade}}" required>
+        </div>
+
+        <div>
+            <label for="crag_id">Crag:</label>
+            <select id="crag_id" name="crag_id">
+                {% for crag in all_crags %}
+                    <option value="{{crag.id}}"
+                    {% if route.crag.id == crag.id %} selected="selected"{% endif %}>
+                    {{crag.name}}
+                </option>
+
+                    {% endfor %}
+            </select>
+        </div>
+
+        <div>
+            <label for="climbed">Climbed:</label>
+            <select id="climbed" name="climbed">
+                <option value="True"{% if route.climbed == True %} selected="selected" {% endif %}>True</option>
+                <option value="False"{% if route.climbed == False %} selected="selected" {% endif %}>False</option>
+               
+            </select>
+        </div>
+
+    <button type="submit">Update Route</button>
+
+
+
+
+    </form>
+
+    {% endblock %}

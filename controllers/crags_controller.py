@@ -41,3 +41,21 @@ def show_route(id):
 def delete_route(id):
     route_repository.delete(id)
     return redirect('/routes')
+
+# edit an entry
+@crags_blueprint.route('/routes/<id>/edit', methods=['GET'])
+def edit_route(id):
+    route = route_repository.select(id)
+    crags = crag_repository.select_all()
+    return render_template('routes/edit.html', route = route, all_crags = crags)
+
+@crags_blueprint.route('/routes/<id>', methods=['POST'])
+def update_route(id):
+    name = request.form['name']
+    grade = request.form['grade']
+    crag_id = request.form['crag_id']
+    climbed = request.form['climbed']
+    crag = crag_repository.select(crag_id)
+    route = Route(name, grade, crag, climbed, id)
+    route_repository.update(route)
+    return redirect('/routes')
