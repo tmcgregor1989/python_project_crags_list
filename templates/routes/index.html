@@ -9,6 +9,11 @@
             Name: {{route.name}}
             Grade: {{route.grade}}
             Crag: {{route.crag.name}}
+            {% if route.climbed == True %}
+            I have climbed this!!
+            {% else %}
+            I will climb this
+            {% endif %}
 
     </div>
 </div>

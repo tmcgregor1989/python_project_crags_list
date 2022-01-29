@@ -28,7 +28,7 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        crag = Crag(result['name'], result['id'])
+        crag = Crag(result['name'], result['id'] )
     return crag
 
 def delete_all():

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <form action="/routes" method="post">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="name" required autofocus>
+        </div>
+
+        <div>
+            <label for="grade">Grade:</label>
+            <input type="text" id="grade" name="grade" placeholder="grade" required>
+        </div>
+
+        <div>
+            <label for="crag_id">Crag:</label>
+            <select id="crag_id" name="crag_id">
+                {% for crag in all_crags %}
+                    <option value="{{crag.id}}">{{crag.name}}</option>
+
+                    {% endfor %}
+            </select>
+        </div>
+
+        <div>
+            <label for="climbed">Climbed:</label>
+            <select id="climbed" name="climbed">
+                <option value="True">True</option>
+                <option value="False">False</option>
+               
+            </select>
+        </div>
+
+        <button type="submit">Add Route</button>
+
+
+
+
+    </form>
+
+    {% endblock %}
