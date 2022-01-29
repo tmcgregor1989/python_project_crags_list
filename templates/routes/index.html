@@ -13,8 +13,10 @@
             I have climbed this!!
             {% else %}
             I will climb this
-        </div>
             {% endif %}
+            <a href="/routes/{{route.id}}">See This Route</a>
+        </div>
+            
         <div class="buttons">
             <form class="delete-form" action="/routes/{{route.id}}/delete" method="POST">
                 <button class="trash-button">Delete Route</button>

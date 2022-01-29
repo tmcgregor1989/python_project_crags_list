@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div>
+    <p>Name: {{route.name}}</p>
+    <p>Grade: {{route.grade}}</p>
+    <p>Crag: {{route.crag.name}}</p>
+    <p> {% if route.climbed == True %}
+        I have climbed this!!
+        {% else %}
+        I will climb this</p>
+
+        {% endif %}
+</div>
+
+
+{% endblock %}

@@ -30,6 +30,12 @@ def create_route():
     route_repository.save(route)
     return redirect('/routes')
 
+
+@crags_blueprint.route('/routes/<id>', methods=['GET'])
+def show_route(id):
+    route = route_repository.select(id)
+    return render_template('routes/show.html', route = route)
+
 # delete an entry
 @crags_blueprint.route('/routes/<id>/delete', methods=['POST'])
 def delete_route(id):
