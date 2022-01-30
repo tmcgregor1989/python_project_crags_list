@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <form action="/locations/{{location.id}}" method="post">
+        <div>
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" value="{{location.name}}" required autofocus>
+        </div>
+
+    <button type="submit">Update Location</button>
+
+
+
+
+    </form>
+
+    {% endblock %}

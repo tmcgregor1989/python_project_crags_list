@@ -7,10 +7,17 @@
     <div class="content">
         <div>
             Location: {{location.name}}
+            <a href="/locations/{{location.id}}">See Location Details</a>
+            <a href="/locations/{{location.id}}/edit">Edit This Location</a>
+
            
         </div>
             
-            
+        <div class="buttons">
+            <form class="delete-form" action="/locations/{{location.id}}/delete" method="POST">
+                <button class="trash-button">Delete Location</button>
+            </form>
+        </div>    
 
     </div>
 </div>

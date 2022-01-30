@@ -4,6 +4,7 @@ from repositories import route_repository
 from repositories import location_repository
 from models.route import Route
 from models.crag import Crag
+from models.location import Location
 crags_blueprint = Blueprint("crags", __name__)
 
 @crags_blueprint.route("/routes")
@@ -132,3 +133,40 @@ def locations():
     return render_template("locations/index.html", all_locations = locations)
 
 
+@crags_blueprint.route('/locations/<id>/delete', methods=['POST'])
+def delete_location(id):
+    location_repository.delete(id)
+    return redirect('/locations')
+
+
+# add new route
+@crags_blueprint.route("/locations/new", methods=['GET'])
+def new_location():
+    return render_template('locations/new.html')
+
+# create new route
+@crags_blueprint.route('/locations', methods=['POST'])
+def create_location():
+    name = request.form['name']
+    location = Location(name)
+    location_repository.save(location)
+    return redirect('/locations')
+
+
+@crags_blueprint.route('/locations/<id>', methods=['GET'])
+def show_location(id):
+    location = location_repository.select(id)
+    crags = location_repository.crags(location)
+    return render_template('locations/show.html', location = location, all_crags = crags)
+
+@crags_blueprint.route('/locations/<id>/edit', methods=['GET'])
+def edit_location(id):
+    location = location_repository.select(id)
+    return render_template('locations/edit.html', location = location)
+
+@crags_blueprint.route('/locations/<id>', methods=['POST'])
+def update_loation(id):
+    name = request.form['location']
+    location = Location(name, id)
+    location_repository.update(location)
+    return redirect('/locations')

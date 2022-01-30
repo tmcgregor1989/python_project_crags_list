@@ -49,7 +49,7 @@ def delete(id):
     run_sql(sql, values)
 
 def update(location):
-    sql = "UPDATE locations (name) = (%s) WHERE id = %s"
+    sql = "UPDATE locations SET name = %s WHERE id = %s"
     values = [location.name, location.id]
     run_sql(sql, values)
 
