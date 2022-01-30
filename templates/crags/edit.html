@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <form action="/crags/{{crag.id}}" method="post">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="{{crag.name}}" required autofocus>
+        </div>
+
+    <button type="submit">Update Crag</button>
+
+
+
+
+    </form>
+
+    {% endblock %}

@@ -10,7 +10,6 @@ DROP TABLE IF EXISTS crags;
 CREATE TABLE crags (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255)
-    -- location_id INT REFERENCES locations(id)
 );
 
 CREATE TABLE routes (

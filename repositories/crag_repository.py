@@ -41,7 +41,7 @@ def delete(id):
     run_sql(sql, values)
 
 def update(crag):
-    sql = "UPDATE crags SET (name) = (%s) WHERE id = %s"
+    sql = "UPDATE crags SET name = %s WHERE id = %s"
     values = [crag.name, crag.id]
     run_sql(sql, values)
 
