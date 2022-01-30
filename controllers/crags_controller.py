@@ -123,3 +123,12 @@ def update_crag(id):
     return redirect('/crags')
 
 
+
+# LOCATIONS
+
+@crags_blueprint.route("/locations")
+def locations():
+    locations = location_repository.select_all()
+    return render_template("locations/index.html", all_locations = locations)
+
+

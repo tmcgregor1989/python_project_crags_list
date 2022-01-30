@@ -37,3 +37,30 @@ def select(id):
     if result is not None:
         location = Location(result['name'], result['id'] )
     return location
+
+
+def delete_all():
+    sql = "DELETE FROM locations"
+    run_sql(sql)
+
+def delete(id):
+    sql = "DELETE FROM locations WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
+def update(location):
+    sql = "UPDATE locations (name) = (%s) WHERE id = %s"
+    values = [location.name, location.id]
+    run_sql(sql, values)
+
+def crags(location):
+    crags = []
+
+    sql = "SELECT * FROM crags WHERE location_id = %s"
+    values = [location.id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        crag = Crag(row['name'], row['location_id'], row['id'])
+        crags.append(crag)
+    return crags

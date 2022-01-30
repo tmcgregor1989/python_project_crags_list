@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for location in all_locations %}
+<div class="location">
+    <div class="content">
+        <div>
+            Location: {{location.name}}
+           
+        </div>
+            
+            
+
+    </div>
+</div>
+
+{% endfor %}
+
+{% endblock %}
