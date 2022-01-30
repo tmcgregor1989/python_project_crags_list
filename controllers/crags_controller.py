@@ -89,7 +89,8 @@ def create_crag():
 @crags_blueprint.route('/crags/<id>', methods=['GET'])
 def show_crag(id):
     crag = crag_repository.select(id)
-    return render_template('crags/show.html', crag = crag)
+    routes = crag_repository.routes(crag)
+    return render_template('crags/show.html', crag = crag, all_routes = routes)
 
 
 @crags_blueprint.route('/crags/<id>/edit', methods=['GET'])
@@ -103,3 +104,5 @@ def update_crag(id):
     crag = Crag(name, id)
     crag_repository.update(crag)
     return redirect('/crags')
+
+

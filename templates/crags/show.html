@@ -4,10 +4,35 @@
 
 <div>
     <p>Name: {{crag.name}}</p>
-
-
-    
     <p><a href="/crags/{{crag.id}}/edit">Edit This Crag</a></p>
+    <hr>
+    {% for route in all_routes %}
+<div class="route">
+    <div class="content">
+        <div>
+            Name: {{route.name}}
+            Grade: {{route.grade}}
+            Crag: {{route.crag.name}}
+            {% if route.climbed == True %}
+            I have climbed this!!
+            {% else %}
+            I will climb this
+            {% endif %}
+            <a href="/routes/{{route.id}}">See This Route</a>
+            <a href="/routes/{{route.id}}/edit">Edit This Route</a>
+        </div>
+            
+        <div class="buttons">
+            <form class="delete-form" action="/routes/{{route.id}}/delete" method="POST">
+                <button class="trash-button">Delete Route</button>
+            </form>
+        </div>
+            
+
+    </div>
+</div>
+
+{% endfor %}
 </div>
 
 
