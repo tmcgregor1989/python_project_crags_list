@@ -2,10 +2,12 @@ from db.run_sql import run_sql
 from models.crag import Crag
 from models.location import Location
 from models.route import Route
+import repositories.location_repository as location_repository
+
 
 def save(crag):
-    sql = "INSERT INTO crags (name) VALUES (%s) RETURNING *"
-    values = [crag.name]
+    sql = "INSERT INTO crags (name, location_id) VALUES (%s, %s) RETURNING *"
+    values = [crag.name, crag.location.id]
     results = run_sql(sql, values)
     id = results[0]['id']
     crag.id = id
@@ -17,7 +19,8 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        crag = Crag(row['name'], row['id'])
+        location = location_repository.select(row['location_id'])
+        crag = Crag(row['name'], location, row['id'])
         crags.append(crag)
     return crags
 
@@ -28,7 +31,8 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        crag = Crag(result['name'], result['id'] )
+        location = location_repository.select(result['location_id'])
+        crag = Crag(result['name'], location, result['id'] )
     return crag
 
 def delete_all():
@@ -41,8 +45,8 @@ def delete(id):
     run_sql(sql, values)
 
 def update(crag):
-    sql = "UPDATE crags SET name = %s WHERE id = %s"
-    values = [crag.name, crag.id]
+    sql = "UPDATE crags SET (name, location_id) = (%s, %s) WHERE id = %s"
+    values = [crag.name, crag.location.id, crag.id]
     run_sql(sql, values)
 
 def routes(crag):

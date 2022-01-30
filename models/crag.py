@@ -1,5 +1,6 @@
 class Crag:
 
-    def __init__(self, name, id = None):
+    def __init__(self, name, location, id = None):
         self.name = name
+        self.location = location
         self.id = id

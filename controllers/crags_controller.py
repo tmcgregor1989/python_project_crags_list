@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, Blueprint
 from repositories import crag_repository
 from repositories import route_repository
+from repositories import location_repository
 from models.route import Route
 from models.crag import Crag
 crags_blueprint = Blueprint("crags", __name__)
@@ -86,13 +87,16 @@ def delete_crag(id):
 # add new route
 @crags_blueprint.route("/crags/new", methods=['GET'])
 def new_crag():
-    return render_template('crags/new.html')
+    locations = location_repository.select_all()
+    return render_template('crags/new.html', all_locations = locations)
 
 # create new route
 @crags_blueprint.route('/crags', methods=['POST'])
 def create_crag():
     name = request.form['name']
-    crag = Crag(name)
+    location_id = request.form['location_id']
+    location = location_repository.select(location_id)
+    crag = Crag(name, location)
     crag_repository.save(crag)
     return redirect('/crags')
 
@@ -105,13 +109,16 @@ def show_crag(id):
 
 @crags_blueprint.route('/crags/<id>/edit', methods=['GET'])
 def edit_crag(id):
+    locations = location_repository.select_all()
     crag = crag_repository.select(id)
-    return render_template('crags/edit.html', crag = crag)
+    return render_template('crags/edit.html', crag = crag, all_locations = locations)
 
 @crags_blueprint.route('/crags/<id>', methods=['POST'])
 def update_crag(id):
     name = request.form['name']
-    crag = Crag(name, id)
+    location_id = request.form['location_id']
+    location = location_repository.select(location_id)
+    crag = Crag(name, location, id)
     crag_repository.update(crag)
     return redirect('/crags')
 

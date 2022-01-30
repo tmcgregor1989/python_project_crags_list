@@ -8,6 +8,20 @@
             <input type="text" id="name" name="name" value="{{crag.name}}" required autofocus>
         </div>
 
+
+        <div>
+            <label for="location_id">Location:</label>
+            <select id="location_id" name="location_id">
+                {% for location in all_locations %}
+                    <option value="{{location.id}}"
+                    {% if crag.location.id == location.id %} selected="selected"{% endif %}>
+                    {{location.name}}
+                </option>
+
+                    {% endfor %}
+            </select>
+        </div>
+
     <button type="submit">Update Crag</button>
 
 
