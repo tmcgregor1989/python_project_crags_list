@@ -49,3 +49,29 @@ def update(route):
     sql = "UPDATE routes SET (name, grade, crag_id, climbed) = (%s, %s, %s, %s) WHERE id = %s"
     values = [route.name, route.grade, route.crag.id, route.climbed, route.id]
     run_sql(sql, values)
+
+
+def select_climbed():
+    routes = []
+    sql = "SELECT * FROM routes"
+    results = run_sql(sql)
+
+    for row in results:
+        crag = crag_repository.select(row['crag_id'])
+        route = Route(row['name'], row['grade'], crag, row['climbed'], row['id'])
+        if route.climbed == True:
+            routes.append(route)
+    return routes
+
+
+def select_unclimbed():
+    routes = []
+    sql = "SELECT * FROM routes"
+    results = run_sql(sql)
+
+    for row in results:
+        crag = crag_repository.select(row['crag_id'])
+        route = Route(row['name'], row['grade'], crag, row['climbed'], row['id'])
+        if route.climbed == False:
+            routes.append(route)
+    return routes

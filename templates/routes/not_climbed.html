@@ -6,14 +6,11 @@
 <div class="route">
     <div class="content">
         <div>
+            {% if route.climbed != True %}
             Name: {{route.name}}
             Grade: {{route.grade}}
             Crag: <a href="/crags/{{route.crag.id}}">{{route.crag.name}}</a>
-            {% if route.climbed == True %}
-            I have climbed this!!
-            {% else %}
-            I will climb this
-            {% endif %}
+            I will climb this!!
             <a href="/routes/{{route.id}}">See This Route</a>
             <a href="/routes/{{route.id}}/edit">Edit This Route</a>
         </div>
@@ -23,11 +20,9 @@
                 <button class="trash-button">Delete Route</button>
             </form>
         </div>
-            
 
-    </div>
-</div>
 
+{% else %}
+{% endif %}
 {% endfor %}
-
 {% endblock %}

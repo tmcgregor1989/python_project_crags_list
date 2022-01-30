@@ -9,6 +9,16 @@ crags_blueprint = Blueprint("crags", __name__)
 def routes():
     routes = route_repository.select_all()
     return render_template("routes/index.html", all_routes = routes)
+
+@crags_blueprint.route("/routes/routes-climbed")
+def routes_climbed():
+    routes = route_repository.select_all()
+    return render_template("routes/routes_climbed.html", all_routes = routes)
+
+@crags_blueprint.route("/routes/routes-not-climbed")
+def routes_not_climbed():
+    routes = route_repository.select_all()
+    return render_template("routes/not_climbed.html", all_routes = routes)
     
 
 

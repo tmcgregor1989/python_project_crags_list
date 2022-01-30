@@ -5,7 +5,7 @@
 <div>
     <p>Name: {{route.name}}</p>
     <p>Grade: {{route.grade}}</p>
-    <p>Crag: {{route.crag.name}}</p>
+    <p>Crag: <a href="/crags/{{route.crag.id}}">{{route.crag.name}}</a></p>
     <p> {% if route.climbed == True %}
         I have climbed this!!
         {% else %}
