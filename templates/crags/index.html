@@ -6,14 +6,14 @@
 <div class="crag">
     <div class="content">
         <div>
-            Name: {{crag.name}}
-            Location: {{crag.location.name}}
+            Name: {{crag.name}}<br>
+            Location: {{crag.location.name}}<br>
             <a href="/crags/{{crag.id}}">See Crag Details</a>
            
         </div>
             
         <div class="buttons">
-            <form class="delete-form" action="/crags/{{crag.id}}/delete" method="POST">
+            <form class="delete-form" action="/crags/{{crag.id}}/delete" onclick="return confirm('Are you sure you want to delete this item?');" method="POST">
                 <button class="trash-button">Delete Crag</button>
             </form>
         </div>

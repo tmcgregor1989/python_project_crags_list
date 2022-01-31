@@ -1,0 +1,157 @@
+body {
+    color: rgba(10, 1, 1, 0.479);
+    font-family: 'Courier New', Courier, monospace;
+    margin: 2%;
+    padding: 0%;
+}
+
+header {
+    background-color: lightseagreen;
+    text-align: center;
+    padding: 40px;
+    font-size: 30px;
+    margin: 0%;
+
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+
+nav {
+    padding: 0px;
+    margin: 0px;
+    padding-right: 25px;
+    font-size: 15px;
+    text-align: left;
+}
+  
+
+
+  
+  /* main {
+    padding: 25px;
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  .flex--row {
+    flex-direction: row;
+  }
+  
+  .content {
+    padding-left: 25px;
+  } */
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+    margin-left: 50px;
+    margin-top: 20px;
+
+}
+
+.route {
+    border: 1px solid #ccc;
+    width: 400px;
+    min-height: 68px;
+    padding: 10px;
+    display: flex;
+    line-height: 18px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+
+
+  .show_route {
+
+  }
+
+
+
+  .show_location {
+
+  }
+
+
+
+
+  .location {
+    border: 1px solid #ccc;
+    width: 300px;
+    min-height: 68px;
+    padding: 10px;
+    display: flex;
+    line-height: 18px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+  }
+
+
+
+  .crag {
+    border: 1px solid #ccc;
+    width: 300px;
+    min-height: 68px;
+    padding: 10px;
+    display: flex;
+    line-height: 18px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+  }
+
+
+  .show_crag {
+
+  }
+
+
+.add_form {
+    border: 1px solid #ccc;
+    width: 400px;
+    min-height: 68px;
+    padding: 10px;
+    display: flex;
+    line-height: 18px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+.add_form > form > div {
+    margin-bottom: 10px;
+}

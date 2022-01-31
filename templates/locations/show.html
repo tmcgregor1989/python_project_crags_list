@@ -3,22 +3,24 @@
 {% block content %}
 
 <div>
+    <div class="show_location">
     <p>Location: {{location.name}}</p>
     <p><a href="/locations/{{location.id}}/edit">Edit This Location</a></p>
+    </div>
     <hr>
     {% for crag in all_crags %}
-<div class="route">
+<div class="crag">
     <div class="content">
         <div>
-            Name: {{crag.name}}
+            Name: {{crag.name}}<br>
         
-            <a href="/crags/{{crag.id}}">See This Crag</a>
+            <a href="/crags/{{crag.id}}">See This Crag</a><br>
             <a href="/crags/{{crag.id}}/edit">Edit This Crag</a>
         </div>
             
         <div class="buttons">
-            <form class="delete-form" action="/crags/{{crag.id}}/delete" method="POST">
-                <button class="trash-button">Delete Route</button>
+            <form class="delete-form" action="/crags/{{crag.id}}/delete" onclick="return confirm('Are you sure you want to delete this item?');" method="POST">
+                <button class="trash-button">Delete Crag</button>
             </form>
         </div>
             
