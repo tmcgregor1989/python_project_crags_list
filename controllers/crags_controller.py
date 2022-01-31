@@ -82,16 +82,20 @@ def crags():
 
 @crags_blueprint.route('/crags/<id>/delete', methods=['POST'])
 def delete_crag(id):
+    crag = crag_repository.select(id)
+    routes = crag_repository.routes(crag)
+    for route in routes:
+        route_repository.delete(route.id)
     crag_repository.delete(id)
     return redirect('/crags')
 
-# add new route
+# add new crag
 @crags_blueprint.route("/crags/new", methods=['GET'])
 def new_crag():
     locations = location_repository.select_all()
     return render_template('crags/new.html', all_locations = locations)
 
-# create new route
+# create new crag
 @crags_blueprint.route('/crags', methods=['POST'])
 def create_crag():
     name = request.form['name']
@@ -135,16 +139,23 @@ def locations():
 
 @crags_blueprint.route('/locations/<id>/delete', methods=['POST'])
 def delete_location(id):
+    location = location_repository.select(id)
+    crags = location_repository.crags(location)
+    for crag in crags:
+        routes = crag_repository.routes(crag)
+        for route in routes:
+            route_repository.delete(route.id)
+        crag_repository.delete(crag.id)
     location_repository.delete(id)
     return redirect('/locations')
 
 
-# add new route
+# add new location
 @crags_blueprint.route("/locations/new", methods=['GET'])
 def new_location():
     return render_template('locations/new.html')
 
-# create new route
+# create new location
 @crags_blueprint.route('/locations', methods=['POST'])
 def create_location():
     name = request.form['name']
