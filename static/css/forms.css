@@ -12,6 +12,9 @@
     flex-wrap: wrap;
     justify-content: space-between;
     background-color: lightsteelblue;
+    background:url('/static/images/dlr-climbing.jpg') no-repeat;
+    color: white;
+    background-size: cover;
 
 
 }

@@ -8,7 +8,7 @@
 <h2>All Routes</h2>
 <nav>
     <div>
-        <p><a href="/routes/routes-climbed">Routes Climbed</a>   <a href="/routes/routes-not-climbed">Still to Climb</a></p>
+        <p><a href="/routes/routes-climbed"style="color: white;">Routes Climbed</a>   <a href="/routes/routes-not-climbed"style="color: white;">Still to Climb</a></p>
         
     
     </div>
@@ -23,14 +23,14 @@
         <div>
             Name: {{route.name}}<br>
             Grade: {{route.grade}}<br>
-            Crag: <a href="/crags/{{route.crag.id}}">{{route.crag.name}}</a><br>
+            Crag: <a href="/crags/{{route.crag.id}}"style="color: white;">{{route.crag.name}}</a><br>
             {% if route.climbed == True %}
             I have climbed this!!<br>
             {% else %}
             I will climb this<br>
             {% endif %}
-            <a href="/routes/{{route.id}}">See This Route</a><br>
-            <a href="/routes/{{route.id}}/edit">Edit This Route</a><br>
+            <a href="/routes/{{route.id}}"style="color: white;">See This Route</a><br>
+            <a href="/routes/{{route.id}}/edit"style="color: white;">Edit This Route</a><br>
             <div class="buttons">
                 <form class="delete-form" action="/routes/{{route.id}}/delete" onclick="return confirm('Are you sure you want to delete this item?');" method="POST">
                     <button class="trash-button">Delete Route</button>

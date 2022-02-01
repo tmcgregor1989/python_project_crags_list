@@ -8,14 +8,14 @@
     <div class="route">
         <div class="content">
     Grade: {{route.grade}}<br>
-    <a href="/crags/{{route.crag.id}}">{{route.crag.name}}</a><br>
+    <a href="/crags/{{route.crag.id}}"style="color: white;">{{route.crag.name}}</a><br>
      {% if route.climbed == True %}
         I have climbed this!!
         {% else %}
         I will climb this
 
         {% endif %}<br>
-    <a href="/routes/{{route.id}}/edit">Edit This Route</a>
+    <a href="/routes/{{route.id}}/edit"style="color: white;">Edit This Route</a>
 
     <div class="buttons">
         <form class="delete-form" action="/routes/{{route.id}}/delete" onclick="return confirm('Are you sure you want to delete this item?');" method="POST">
