@@ -1,16 +1,18 @@
 body {
     color: rgba(10, 1, 1, 0.479);
     font-family: 'Courier New', Courier, monospace;
-    margin: 2%;
+    margin: 0%;
     padding: 0%;
 }
 
 header {
     background-color: lightseagreen;
+    background-image:url("static/images/project-header.jpeg");
     text-align: center;
     padding: 40px;
     font-size: 30px;
     margin: 0%;
+    width: 100%;
 
 }
 
@@ -73,7 +75,7 @@ nav {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: left;
+    justify-content: center;
     margin-left: 50px;
     margin-top: 20px;
 
@@ -91,21 +93,6 @@ nav {
     flex-direction: row;
     flex-wrap: wrap;
   }
-
-
-
-  .show_route {
-
-  }
-
-
-
-  .show_location {
-
-  }
-
-
-
 
   .location {
     border: 1px solid #ccc;
@@ -134,11 +121,6 @@ nav {
     margin-right: 10px;
     flex-direction: row;
     flex-wrap: wrap;
-
-  }
-
-
-  .show_crag {
 
   }
 
