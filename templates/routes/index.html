@@ -2,10 +2,22 @@
 
 {% extends "base.html" %}
 
-<h2>All Routes</h2>
-{% block content %}
 
+{% block content %}
+<div class="local_header">
+<h2>All Routes</h2>
+<nav>
+    <div>
+        <p><a href="/routes/routes-climbed">Routes Climbed</a>   <a href="/routes/routes-not-climbed">Still to Climb</a></p>
+        
+    
+    </div>
+</nav>
+</div>
+
+<div class="container">
 {% for route in all_routes %}
+
 <div class="route">
     <div class="content">
         <div>
@@ -33,6 +45,7 @@
 </div>
 
 
-{% endfor %}
 
+{% endfor %}
+</div>
 {% endblock %}

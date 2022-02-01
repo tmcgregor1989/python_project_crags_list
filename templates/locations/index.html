@@ -2,6 +2,13 @@
 
 {% block content %}
 
+<div class="local_header">
+    <h2>All Locations</h2>
+</div>
+
+
+<div class="container">
+
 {% for location in all_locations %}
 <div class="location">
     <div class="content">
@@ -23,5 +30,6 @@
 </div>
 
 {% endfor %}
+</div>
 
 {% endblock %}

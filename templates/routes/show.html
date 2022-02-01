@@ -1,9 +1,10 @@
 {% extends "base.html" %}
-<h2>{{route.name}}</h2>
-{% block content %}
 
+{% block content %}
+<div class="local_header">
+<h2>{{route.name}}</h2>
+</div>
 <div class="show_route">
-    <p>Name: {{route.name}}</p>
     <p>Grade: {{route.grade}}</p>
     <p>Crag: <a href="/crags/{{route.crag.id}}">{{route.crag.name}}</a></p>
     <p> {% if route.climbed == True %}

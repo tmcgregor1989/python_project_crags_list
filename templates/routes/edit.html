@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="local_header">
+    <h2>Edit Route</h2>
+</div>
+<div class="add_form">
 
     <form action="/routes/{{route.id}}" method="post">
         <div>
@@ -42,4 +46,5 @@
 
     </form>
 
+</div>
     {% endblock %}

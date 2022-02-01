@@ -1,6 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="local_header">
+    <h2>Routes I Have Climbed</h2>
+    <nav>
+        <div>
+            <p><a href="/routes">All Routes</a>   <a href="/routes/routes-not-climbed">Still to Climb</a></p>
+            
+        
+        </div>
+    </nav>
+</div>
+
+<div class="container">
 
 {% for route in all_routes %}
 
@@ -26,4 +38,5 @@
 {% else %}
 {% endif %}
 {% endfor %}
+</div>
 {% endblock %}
