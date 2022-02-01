@@ -3,11 +3,14 @@ body {
     font-family: 'Courier New', Courier, monospace;
     margin: 0%;
     padding: 0%;
+    background-color: rgb(182, 184, 187);
 }
 
 header {
-    background-color: lightseagreen;
-    background-image:url("static/images/project-header.jpeg");
+    
+    background:url('/static/images/project-header.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
     text-align: center;
     padding: 40px;
     font-size: 30px;
@@ -78,6 +81,7 @@ nav {
     justify-content: center;
     margin-left: 50px;
     margin-top: 20px;
+    
 
 }
 
@@ -92,6 +96,7 @@ nav {
     margin-right: 10px;
     flex-direction: row;
     flex-wrap: wrap;
+    background-color: lightsteelblue;
   }
 
   .location {
@@ -105,6 +110,8 @@ nav {
     margin-right: 10px;
     flex-direction: row;
     flex-wrap: wrap;
+    background-color: lightsteelblue;
+
 
   }
 
@@ -121,6 +128,8 @@ nav {
     margin-right: 10px;
     flex-direction: row;
     flex-wrap: wrap;
+    background-color: lightsteelblue;
+
 
   }
 
@@ -137,6 +146,8 @@ nav {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    background-color: lightsteelblue;
+
 
 }
 
