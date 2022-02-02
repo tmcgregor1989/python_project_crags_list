@@ -11,8 +11,9 @@ crags_blueprint = Blueprint("crags", __name__)
 
 @crags_blueprint.route("/crags")
 def crags():
+    locations = location_repository.select_all()
     crags = crag_repository.select_all()
-    return render_template("crags/index.html", all_crags = crags)
+    return render_template("crags/index.html", all_locations = locations, all_crags = crags)
 
 @crags_blueprint.route('/crags/<id>/delete', methods=['POST'])
 def delete_crag(id):
@@ -60,7 +61,6 @@ def update_crag(id):
     crag = Crag(name, location, id)
     crag_repository.update(crag)
     return redirect('/crags')
-
 
 
 

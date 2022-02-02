@@ -3,10 +3,18 @@
 {% block content %}
 <div class="local_header">
 <h2>All Crags</h2>
+<hr>
+</div>
+
+{% for location in all_locations %}
+
+<div class="local_header">
+    <h2>{{location.name}}</h2>
 </div>
 
 <div class="container">
 {% for crag in all_crags %}
+{% if crag.location.id == location.id %}
 <div class="crag">
     <div class="content">
         <div>
@@ -25,7 +33,11 @@
 
     </div>
 </div>
-
+{% else %}  
+{% endif %}
+{% endfor %}
+</div>
+<hr>
 {% endfor %}
 </div>
 {% endblock %}
