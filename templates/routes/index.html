@@ -3,6 +3,13 @@
 {% block content %}
 <div class="local_header">
     <h2>All Routes</h2><hr>
+    <nav>
+        <div>
+            <p><a href="/routes/routes-climbed"style="color: white;">Routes Climbed</a>   <a href="/routes/routes-not-climbed"style="color: white;">Still to Climb</a></p>
+            
+        
+        </div>
+    </nav>
 </div>
 {% for crag in all_crags %}
 
@@ -22,7 +29,12 @@
                 Name: {{route.name}}<br>
                 Grade: {{route.grade}}<br>
                 Crag: <a href="/crags/{{route.crag.id}}"style="color: white;">{{route.crag.name}}</a><br>
-                I will climb this!!<br>
+                {% if route.climbed == True %}
+        I have climbed this!!
+        {% else %}
+        I will climb this!!
+
+        {% endif %}<br>
                 <a href="/routes/{{route.id}}"style="color: white;">See This Route</a><br>
                 <a href="/routes/{{route.id}}/edit"style="color: white;">Edit This Route</a><br>
                 <div class="buttons">
