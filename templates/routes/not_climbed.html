@@ -16,9 +16,9 @@
 {% for route in all_routes %}
 
             {% if route.climbed != True %}
-            <div class="route">
+    <div class="route">
                 <div class="content">
-                    <div>
+        <div>
             Name: {{route.name}}<br>
             Grade: {{route.grade}}<br>
             Crag: <a href="/crags/{{route.crag.id}}"style="color: white;">{{route.crag.name}}</a><br>
@@ -34,7 +34,7 @@
 
            
     </div>
-</div>
+    </div>
 {% else %}  
 {% endif %}
 {% endfor %}
